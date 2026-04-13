@@ -209,7 +209,11 @@
       .r-row { grid-template-columns: 1fr 70px; }
       .r-row .st:nth-child(3) { display: none; }
     }
-  </style>
+  
+    @media (max-width: 768px) {
+      .feature-grid { grid-template-columns: 1fr !important; }
+    }
+</style>
 </head>
 <body>
 
@@ -256,10 +260,46 @@
   <h2 class="section-title">Deja de adivinar. Empieza a ganar.</h2>
   <p class="section-sub">Porque elegir el nicho equivocado es el error más caro que puedes cometer.</p>
 
-  <div class="tabs">
+  
+<!-- FEATURE SECTIONS -->
+<section style="padding: 80px 0 0; background: #fff;">
+  <div class="container">
+
+    <!-- Feature 1 -->
+    <div style="text-align:center;max-width:720px;margin:0 auto 32px;">
+      <p style="font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Contenido que convierte</p>
+      <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;">Los temas virales estaban ahí.<br>Ahora los ves tú primero.</h2>
+      <p style="font-size:17px;color:var(--text2);line-height:1.75;">Deja de publicar y rezar. NicDar analiza qué temas están generando tracción real en tu nicho y te los sirve en bandeja. Antes de grabar, ya sabes qué va a funcionar.</p>
+    </div>
+    <div class="hero-mockup" style="margin-bottom:100px;">
+      <div class="mockup-bar"><div class="dots"><span class="dot d-r"></span><span class="dot d-y"></span><span class="dot d-g"></span></div><div class="url-bar">nicdar.app</div></div>
+      <div style="background:#f9fafb;min-height:360px;display:flex;align-items:center;justify-content:center;">
+        <!-- SUSTITUIR src="video1.mp4" POR TU VÍDEO -->
+        <video controls style="width:100%;display:block;max-height:400px;" src="video2.mp4"></video>
+      </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div style="text-align:center;max-width:720px;margin:0 auto 32px;">
+      <p style="font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Alcance global</p>
+      <h2 style="font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;">El idioma ya no es una barrera.<br>Es tu ventaja.</h2>
+      <p style="font-size:17px;color:var(--text2);line-height:1.75;">Escanea YouTube en 22 países y entiende cada oportunidad en tu idioma, al instante. Mientras otros solo miran su mercado local, tú ya estás viendo lo que viene de fuera.</p>
+    </div>
+    <div class="hero-mockup" style="margin-bottom:80px;">
+      <div class="mockup-bar"><div class="dots"><span class="dot d-r"></span><span class="dot d-y"></span><span class="dot d-g"></span></div><div class="url-bar">nicdar.app</div></div>
+      <div style="background:#f9fafb;min-height:360px;display:flex;align-items:center;justify-content:center;">
+        <!-- SUSTITUIR src="" POR TU VÍDEO -->
+        <video controls style="width:100%;display:block;max-height:400px;" src=""></video>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- END FEATURE SECTIONS -->
+<div class="tabs">
     <button class="tab on" onclick="setTab(this,'radar')"><span class="ti">🎯</span> Radar Score</button>
     <button class="tab" onclick="setTab(this,'global')"><span class="ti">🌍</span> Global Hunter</button>
-    <button class="tab" onclick="setTab(this,'filtros')"><span class="ti">🔎</span> Filtros avanzados</button>
+    
     <button class="tab" onclick="setTab(this,'similares')"><span class="ti">📡</span> Canales similares</button>
     <button class="tab" onclick="setTab(this,'realtime')"><span class="ti">⚡</span> Tiempo real</button>
   </div>
@@ -278,12 +318,7 @@
       <div class="pills"><span class="pill">22 países disponibles</span><span class="pill"></span><span class="pill">Tendencias globales</span><span class="pill">Cambio con 1 clic</span></div>
     </div>
   </div>
-  <div class="tab-content" id="tab-filtros">
-    <div class="tab-panel">
-      <h3>Filtros avanzados — Encuentra exactamente lo que buscas</h3>
-      <p>Filtra por rango de suscriptores, total de vistas, antigüedad del canal y más. Deja de revisar canales que no encajan y céntrate en los que realmente tienen potencial.</p>
-      <div class="pills"><span class="pill">Rango de suscriptores</span><span class="pill">Total de vistas</span><span class="pill">Antigüedad del canal</span><span class="pill">Filtros combinados</span></div>
-    </div>
+  </div>
   </div>
   <div class="tab-content" id="tab-similares">
     <div class="tab-panel">
@@ -321,10 +356,10 @@
 <section id="faq" class="faq"><div class="container">
   <h2 class="section-title">Preguntas frecuentes</h2>
   <div class="faq-list">
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué es NicDar? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>NicDar es una extensión de Chrome que se integra en YouTube para analizar canales y detectar nichos con alta demanda y poca competencia. Calcula un Radar Score de 0 a 100 para que sepas exactamente dónde hay oportunidades reales.</p></div></div>
+    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué es NicDar? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>NicDar es la herramienta que usan los creadores inteligentes para no perder meses en el nicho equivocado. Encuentra oportunidades reales en YouTube en segundos.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Funciona para creadores principiantes? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>Sí, está diseñado para eso. NicDar te da la información que necesitas para no empezar un canal en un nicho saturado. Todo está presentado de forma clara sin necesitar conocimientos técnicos.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué incluye el plan gratuito? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>El plan gratuito incluye Radar Score básico, análisis en tu país, filtros de suscriptores y vistas, y hasta 3 análisis detallados de canal por día. Sin tarjeta de crédito ni límite de tiempo.</p></div></div>
-    <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo cancelar cuando quiera? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>Sí, en cualquier momento desde tu panel de usuario. Sin permanencias ni penalizaciones. Mantienes el acceso Pro hasta el final del período pagado.</p></div></div>
+    
+    
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué es el Global Niche Hunter? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>Nuestra función más potente. Te permite analizar YouTube en 22 países con un clic para descubrir tendencias antes de que lleguen a tu mercado. Los títulos se traducen automáticamente. Disponible en el plan Pro.</p></div></div>
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Los datos son en tiempo real? <span class="faq-arrow">↓</span></button><div class="faq-a"><p>Sí. NicDar obtiene los datos directamente de YouTube en el momento del análisis. No usamos bases de datos desactualizadas. Lo que ves refleja el estado real de YouTube en ese instante.</p></div></div>
   </div>
@@ -373,20 +408,20 @@
 </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function setTab(btn, id) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('on'));
-    btn.classList.add('on');
-    document.getElementById('tab-' + id).classList.add('on');
-  }
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-  function setToggle(mode) {
-    document.getElementById('tbm').classList.toggle('on', mode === 'm');
-    document.getElementById('tba').classList.toggle('on', mode === 'a');
-    document.querySelectorAll('.price-m').forEach(el => el.style.display = mode === 'm' ? ''
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+function setTab(btn, id) {
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('on'); });
+  document.querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('on'); });
+  btn.classList.add('on');
+  document.getElementById('tab-' + id).classList.add('on');
+}
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
