@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalar NicDar — Guía de instalación</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #C9A227;
+      --purple-dark: #A07D10;
+      --purple-light: #FDF6DC;
+      --text: #111827;
+      --text2: #6b7280;
+      --text3: #9ca3af;
+      --border: #e5e7eb;
+      --bg: #ffffff;
+      --bg2: #f9fafb;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+
+    nav { height: 64px; background: rgba(255,255,255,0.95); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; }
+    .logo { font-size: 20px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--purple); }
+
+    .hero { text-align: center; padding: 64px 24px 48px; background: linear-gradient(180deg, #fffdf5 0%, #fff 100%); }
+    .hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px; }
+    .hero p { font-size: 17px; color: var(--text2); max-width: 480px; margin: 0 auto; }
+
+    .download-box { max-width: 480px; margin: 32px auto; background: var(--purple-light); border: 1.5px solid var(--purple); border-radius: 16px; padding: 28px 32px; text-align: center; }
+    .download-box .icon { font-size: 36px; margin-bottom: 12px; }
+    .download-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .download-box p { font-size: 14px; color: var(--text2); margin-bottom: 20px; }
+    .btn-download { display: inline-flex; align-items: center; gap: 10px; background: var(--purple); color: #fff; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .btn-download:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .download-note { font-size: 12px; color: var(--text3); margin-top: 12px; }
+
+    .steps-section { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .steps-title { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; text-align: center; }
+    .steps-sub { font-size: 14px; color: var(--text2); text-align: center; margin-bottom: 40px; }
+
+    .step { margin-bottom: 40px; }
+    .step-header { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+    .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--purple); color: #fff; font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-body h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; padding-top: 8px; }
+    .step-body p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+    .step-body code { background: #f3f4f6; border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px; font-size: 13px; font-family: monospace; color: var(--text); }
+
+    .step-img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; margin-top: 4px; }
+
+    .connector { width: 2px; height: 20px; background: var(--border); margin: 0 0 20px 19px; }
+
+    .done-box { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 16px; padding: 28px 32px; text-align: center; margin-top: 8px; }
+    .done-box .icon { font-size: 36px; margin-bottom: 10px; }
+    .done-box h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #15803d; }
+    .done-box p { font-size: 14px; color: #166534; }
+
+    footer { text-align: center; padding: 32px; font-size: 13px; color: var(--text3); border-top: 1px solid var(--border); }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+    .downloading { animation: pulse 1.5s infinite; pointer-events: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Nic<span>Dar</span></a>
+</nav>
+
+<div class="hero">
+  <h1>¡Ya casi tienes NicDar! 🎉</h1>
+  <p>Tu descarga ha comenzado automáticamente. Sigue los pasos de abajo para instalarla en Chrome.</p>
+</div>
+
+<div class="download-box">
+  <div class="icon">📦</div>
+  <h3>NicDar v1.0.3</h3>
+  <p>Si la descarga no ha comenzado, pulsa el botón:</p>
+  <button class="btn-download" onclick="startDownload(this)">
+    ⬇️ Descargar NicDar
+  </button>
+  <p class="download-note">Archivo ZIP · Compatible con Chrome y navegadores basados en Chromium</p>
+</div>
+
+<div class="steps-section">
+  <h2 class="steps-title">Instala NicDar en 4 pasos</h2>
+  <p class="steps-sub">Solo tardas 2 minutos. No hace falta la Chrome Web Store.</p>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Descomprime el archivo ZIP</h3>
+        <p>Abre la carpeta de descargas y haz doble clic en <code>NicDar.zip</code>. Se creará una carpeta llamada <code>NicDar</code>.</p>
+      </div>
+    </div>
+    <img class="step-img" src="step1.png" alt="Carpeta NicDar descomprimida en Descargas" />
+  </div>
+
+  <div class="connector"></div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Activa el Modo Desarrollador</h3>
+        <p>En Chrome escribe <code>chrome://extensions</code> y pulsa Enter. Activa el interruptor <strong>"Modo Desarrollador"</strong> arriba a la derecha.</p>
+      </div>
+    </div>
+    <img class="step-img" src="step2.png" alt="Modo Desarrollador activado en Chrome" />
+  </div>
+
+  <div class="connector"></div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Carga la extensión</h3>
+        <p>Pulsa el botón <strong>"Cargar descomprimida"</strong> y selecciona la carpeta <code>NicDar</code> que descomprimiste en el paso 1.</p>
+      </div>
+    </div>
+    <img class="step-img" src="step3.png" alt="Botón Cargar descomprimida en Chrome" />
+  </div>
+
+  <div class="connector"></div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Fija la extensión e inicia sesión</h3>
+        <p>Haz clic en el icono de extensiones 🧩 en Chrome, busca NicDar y pulsa el pin para fijarla. Luego ábrela e inicia sesión con tu cuenta de Google.</p>
+      </div>
+    </div>
+    <img class="step-img" src="step4.png" alt="Fijar NicDar e iniciar sesión" />
+  </div>
+
+  <div class="done-box">
+    <div class="icon">✅</div>
+    <h3>¡NicDar está instalada!</h3>
+    <p>Abre YouTube, haz una búsqueda y verás el botón <strong>Scan</strong> aparecer. ¡Empieza a encontrar nichos rentables!</p>
+  </div>
+</div>
+
+<footer>
+  © 2025 NicDar · <a href="/" style="color:var(--purple)">nicdar.app</a>
+</footer>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() { triggerDownload(); }, 800);
+  });
+
+  function triggerDownload() {
+    const a = document.createElement('a');
+    a.href = '/nicdar.zip';
+    a.download = 'NicDar.zip';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function startDownload(btn) {
+    btn.textContent = '⏳ Descargando...';
+    btn.classList.add('downloading');
+    triggerDownload();
+    setTimeout(function() {
+      btn.textContent = '⬇️ Descargar NicDar';
+      btn.classList.remove('downloading');
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
