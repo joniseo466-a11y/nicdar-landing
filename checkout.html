@@ -41,41 +41,49 @@
   <div class="spinner"></div>
   <h2>Redirigiendo al pago...</h2>
   <p>Un momento, por favor.</p>
-
   <script>
-    async function startCheckout() {
-      const params = new URLSearchParams(window.location.search);
-      const email = params.get('email');
-      const plan = params.get('plan') || 'pro';
+    function startCheckout() {
+      var params = new URLSearchParams(window.location.search);
+      var email = params.get('email');
+      var plan = params.get('plan') || 'pro';
 
       if (!email) {
         document.body.innerHTML = '<h2>Error</h2><p>Falta el email. Abre esta página desde la extensión.</p>';
         return;
       }
 
-      let referral = null;
+      var referral = null;
       if (window.Rewardful && window.Rewardful.referral) {
         referral = window.Rewardful.referral;
       }
 
-      try {
-        const res = await fetch('https://amusing-courtesy-production.up.railway.app/checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, plan, referral })
-        });
-        const data = await res.json();
+      fetch('https://amusing-courtesy-production.up.railway.app/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, plan: plan, referral: referral })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
         if (data.url) {
           window.location.href = data.url;
         } else {
           document.body.innerHTML = '<h2>Error</h2><p>No se pudo iniciar el pago. Inténtalo de nuevo.</p>';
         }
-      } catch (e) {
+      })
+      .catch(function() {
         document.body.innerHTML = '<h2>Error</h2><p>Problema de conexión. Revisa tu internet.</p>';
-      }
+      });
     }
 
-    setTimeout(startCheckout, 1500);
+    window.addEventListener('load', function() {
+      if (window.rewardful) {
+        rewardful('ready', function() {
+          startCheckout();
+        });
+      } else {
+        setTimeout(startCheckout, 2000);
+      }
+    });
   </script>
 </body>
 </html>
