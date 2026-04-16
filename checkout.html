@@ -59,7 +59,7 @@
       }
 
       try {
-        const res = await fetch('https://amusing-courtesy-production.up.railway.app/create-checkout', {
+        const res = await fetch('https://amusing-courtesy-production.up.railway.app/checkout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, plan, referral })
