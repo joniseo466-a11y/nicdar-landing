@@ -3,5 +3,6 @@
   "rewrites": [
     { "source": "/instalar", "destination": "/instalar.html" }
     { "source": "/precios", "destination": "/precios.html" }
+    { "source": "/privacidad", "destination": "/privacidad.html" }
   ]
 }
