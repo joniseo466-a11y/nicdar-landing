@@ -29,7 +29,7 @@
     body { font-family: 'Helvetica Neue', Helvetica, 'Manrope', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
     nav { height: 64px; background: rgba(15,17,23,0.95); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 32px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
-    .logo { font-size: 20px; font-weight: 800; color: #fff; }
+    .logo { font-size: 20px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
     .logo span { color: var(--gold); }
 
     .header { text-align: center; padding: 64px 24px 48px; }
@@ -105,7 +105,10 @@
 <body>
 
 <nav>
-  <a href="/" class="logo">Nic<span>Dar</span></a>
+  <a href="/" class="logo">
+    <img src="android-chrome-192x192.png" alt="NicDar" style="width:32px;height:32px;border-radius:50%;">
+    <span style="color:#fff;">NicDar</span>
+  </a>
 </nav>
 
 <div class="header">
@@ -123,7 +126,7 @@
     <hr class="divider">
     <ul class="features">
       <li><span class="ck">&#10003;</span><span>Scans ILIMITADOS</span></li>
-      <li><span class="ck">&#10003;</span><span class="feat-highlight"><strong>Global Search (5 al día)</strong><span class="sub">Busca nichos en otros países e idiomas</span></span></li>
+      <li><span class="ck">&#10003;</span><span class="feat-highlight"><strong>Global Search (25 al día)</strong><span class="sub">Busca nichos en otros países e idiomas</span></span></li>
       <li><span class="ck">&#10003;</span><span>150 vídeos por scan<span class="sub">Número de vídeos analizados por scan</span></span></li>
       <li><span class="ck">&#10003;</span><span>Detector de Outliers y temas de vídeo ganadores</span></li>
       <li><span class="ck">&#10003;</span><span>Detector Gold/Epic/Legendary</span></li>
@@ -197,12 +200,9 @@
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">¿Qué diferencia hay entre Pro y Max? <span class="faq-arrow">&#8595;</span></button>
-    <div class="faq-a"><p>La diferencia clave es el Global Search: en Pro tienes 5 búsquedas globales al día, en Max son ilimitadas. Si quieres explorar nichos sin límites, Max es tu plan.</p></div>
+    <div class="faq-a"><p>La diferencia clave es el Global Search: en Pro tienes 25 búsquedas globales al día, en Max son ilimitadas. Si quieres explorar nichos sin límites, Max es tu plan.</p></div>
   </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">¿El precio incluye IVA? <span class="faq-arrow">&#8595;</span></button>
-    <div class="faq-a"><p>Los precios no incluyen IVA. Se calculará en el checkout según tu país.</p></div>
-  </div>
+  
 </div>
 
 <footer>
