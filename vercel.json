@@ -2,5 +2,6 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/instalar", "destination": "/instalar.html" }
+    { "source": "/precios", "destination": "/precios.html" }
   ]
 }
